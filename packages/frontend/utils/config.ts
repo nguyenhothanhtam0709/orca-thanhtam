@@ -1,4 +1,4 @@
-const API_PRODUCTION_URL = 'http://localhost:4000';
+const API_PRODUCTION_URL = 'http://ec2-18-207-153-46.compute-1.amazonaws.com:4000';
 const API_DEV_URL = 'http://localhost:4000';
 
 export const Config = {
