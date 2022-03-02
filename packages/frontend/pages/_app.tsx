@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import type { AppProps } from 'next/app';
 import axios from 'axios';
@@ -13,6 +13,7 @@ import { store } from '../store';
 import AuthPopup from '../components/Auth';
 import currentTheme, { Theme } from '../theme';
 import { Config } from '../utils';
+import Head from 'next/head';
 
 axios.defaults.baseURL = Config.API_URL;
 axios.defaults.withCredentials = true;
@@ -49,6 +50,11 @@ const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
+      <Head>
+        <link rel="shortcut icon" href={Config.FAVICON} />
+      </Head>
+
+        
       <QueryClientProvider client={queryClientRef.current}>
         <Hydrate state={pageProps.dehydratedState}>
           <ReduxProvider store={store}>
